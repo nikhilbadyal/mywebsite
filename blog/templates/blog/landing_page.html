@@ -7,37 +7,29 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static "blog/landing-page.css" %}">
+    <link rel="stylesheet" href="{% static "blog/post.css" %}">
+
 {% endblock %}
 
 {% block body_content %}
-    <header id="main-navigation"><h1><a href="">Nikhil's Blog</a></h1>
-        <nav><a href="">All Blogs</a></nav>
-    </header>
 
     <section id="welcome">
         <header>
-            <img src="{% static  "images/ProfilePicture.jpg" %}" alt="Nikhil- The author of the blog">
+            <img src="{% static  "images/ProfilePicture.jpg" %}" alt="Nikhil - The author of the blog">
             <h2>Nikhil's Blog</h2>
         </header>
         <p>Hey! I'm Nikhil and I write about tech</p>
     </section>
+
     <section id="latest-posts">
         <h2>My Latest Thoughts</h2>
-
         <ul>
-            <li>
-                <article class="post">
-                    <a href="">
-                        <img src="{% static "images/ProfilePicture.jpg" %}" alt="Mountain">
-                        <div class="post__content">
-                            <h3>Mountain Hiking</h3>
-                            <p>I love mountains.I love mountains.I love mountains. </p>
+            {% for post in posts %}
+                {% include "blog/includes/post.html" %}
 
-                        </div>
-                    </a>
-                </article>
-            </li>
+            {% endfor %}
         </ul>
+
     </section>
     <section id="about">
         <h2>
@@ -47,7 +39,7 @@
             I work during work and play when ever I'm free.
         </p>
         <p>
-            My Goal is keep learning
+            My Goal is to keep learning.
         </p>
     </section>
 {% endblock %}
