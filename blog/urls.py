@@ -3,7 +3,8 @@ from django.urls import path
 from blog import views
 
 urlpatterns = [
-    path("", views.landing_page, name="landing-page"),
-    path("posts", views.posts, name="posts"),
-    path("posts/<slug:slug>", views.post_details, name="post-details"),
+    path("", views.LandingPageView.as_view(), name="landing-page"),
+    path("posts", views.AllPostsView.as_view(), name="posts"),
+    path("posts/<slug:slug>", views.PostDetails.as_view(), name="post-details"),
+    path("read-later", views.ReadLater.as_view(), name="read-later"),
 ]
